@@ -11,8 +11,8 @@ def mostrar_regras():
 Acumule até [1;33m21 pontos[0m sem ultrapassá-los. Use cartas de alimentos saudáveis 🍎 e fast food 🍔 com sabedoria!
 
 [1mCartas:[0m
-- 🍎 Alimentos Saudáveis: menos pontos (1–6), menos risco
-- 🍔 Fast Food: mais pontos (6–10), mais risco!
+- 🍎 Alimentos Saudáveis: menos pontos (1–5), menos risco
+- 🍔 Fast Food: mais pontos (5–10), mais risco!
 
 [1mMecânica:[0m
 - Toda vez que comprar carta, responda a uma [1mlógica proposicional[0m:
@@ -41,8 +41,8 @@ BOLD = "\033[1m"
 
 SAUDAVEIS = {
     "Maçã": 2, "Banana": 3, "Brócolis": 1, "Peixe": 4, "Frango": 5,
-    "Arroz Integral": 3, "Aveia": 2, "Ovos": 1, "Nozes": 6, "Iogurte": 2,
-    "Quinoa": 4, "Chia": 3, "Salmão": 6, "Espinafre": 2, "Batata Doce": 4
+    "Arroz Integral": 3, "Aveia": 2, "Ovos": 1, "Nozes": 5, "Iogurte": 2,
+    "Granola": 4, "Alface": 3, "Salmão": 5, "Espinafre": 2, "Batata Doce": 4
 }
 
 FAST_FOOD = {
@@ -69,17 +69,110 @@ PERGUNTAS_LOGICAS = [
     },
     {
         "pergunta": "Qual é a contrapositiva de 'Se comer fast food, terá mais calorias'?",
-        "opcoes": ["Se não comer fast food, terá menos calorias", 
-                   "Se não tiver mais calorias, então não comeu fast food", 
-                   "Se tiver mais calorias, então comeu fast food"],
+        "opcoes": [
+            "Se não comer fast food, terá menos calorias", 
+            "Se não tiver mais calorias, então não comeu fast food", 
+            "Se tiver mais calorias, então comeu fast food"
+        ],
         "resposta": 1
     },
     {
         "pergunta": "A negação de 'Nenhum fast food é saudável' é:",
         "opcoes": ["Todos os fast foods são saudáveis", "Algum fast food é saudável", "Nenhum alimento saudável é fast food"],
         "resposta": 1
+    },
+    {
+        "pergunta": "Se 'Todos os saudáveis praticam exercícios' e 'Carlos não pratica exercícios', então:",
+        "opcoes": [
+            "Carlos é saudável",
+            "Carlos não é saudável",
+            "Carlos é atleta"
+        ],
+        "resposta": 1
+    },
+    {
+        "pergunta": "A contrária de 'Se você comer bem, então terá saúde' é:",
+        "opcoes": [
+            "Se você tiver saúde, então comeu bem",
+            "Se você não tiver saúde, então não comeu bem",
+            "Se você não comer bem, então não terá saúde"
+        ],
+        "resposta": 0
+    },
+    {
+        "pergunta": "Negar 'Se corre, então emagrece' resulta em:",
+        "opcoes": [
+            "Corre e não emagrece",
+            "Não corre e não emagrece",
+            "Não corre e emagrece"
+        ],
+        "resposta": 0
+    },
+    {
+        "pergunta": "Qual das opções representa uma tautologia?",
+        "opcoes": [
+            "p ∨ ¬p",
+            "p ∧ ¬p",
+            "¬(p ∨ q)"
+        ],
+        "resposta": 0
+    },
+    {
+        "pergunta": "A equivalência de 'p → q' é:",
+        "opcoes": [
+            "¬p ∨ q",
+            "¬q ∨ p",
+            "p ∧ ¬q"
+        ],
+        "resposta": 0
+    },
+    {
+        "pergunta": "Qual das frases é uma contradição?",
+        "opcoes": [
+            "p ∧ ¬p",
+            "p ∨ q",
+            "¬(p ∧ ¬p)"
+        ],
+        "resposta": 0
+    },
+    {
+        "pergunta": "Se 'Todo alimento natural é nutritivo', qual opção nega isso corretamente?",
+        "opcoes": [
+            "Nenhum alimento natural é nutritivo",
+            "Algum alimento natural não é nutritivo",
+            "Todos os alimentos não são nutritivos"
+        ],
+        "resposta": 1
+    },
+    {
+        "pergunta": "Se 'Nenhum refrigerante é saudável', qual opção é equivalente?",
+        "opcoes": [
+            "Todo refrigerante não é saudável",
+            "Algum refrigerante é saudável",
+            "Nenhum alimento saudável é refrigerante"
+        ],
+        "resposta": 0
+    },
+    {
+        "pergunta": "Se 'Se beber água, então melhora o metabolismo' é falso, então:",
+        "opcoes": [
+            "Bebeu água e melhorou o metabolismo",
+            "Não bebeu água e não melhorou",
+            "Bebeu água e não melhorou o metabolismo"
+        ],
+        "resposta": 2
+    },
+    {
+        "pergunta": "Negar 'Algum alimento processado é nutritivo' é:",
+        "opcoes": [
+            "Nenhum alimento processado é nutritivo",
+            "Todos os alimentos são processados",
+            "Algum alimento natural não é nutritivo"
+        ],
+        "resposta": 0
     }
 ]
+
 
 def criar_baralho():
     baralho = [(a, v, "saudavel") for a, v in SAUDAVEIS.items()] +               [(a, v, "fastfood") for a, v in FAST_FOOD.items()]
@@ -190,4 +283,4 @@ while True:
     again = input("\nDeseja jogar novamente? (s/n): ").strip().lower()
     if again != 's':
         print("Até logo!")
-        break
+        brea
