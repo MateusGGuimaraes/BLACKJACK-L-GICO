@@ -283,4 +283,4 @@ while True:
     again = input("\nDeseja jogar novamente? (s/n): ").strip().lower()
     if again != 's':
         print("Até logo!")
-        brea
+        break
